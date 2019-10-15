@@ -1,0 +1,42 @@
+﻿@model MVC_Day_1.ViewModel.CustomerMovieViewModel
+@{
+    ViewBag.Title = "DisplayCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    text {
+        color: aqua;
+    }
+
+    h2, h4 {
+        color: deeppink;
+        margin:20px;
+        
+    }
+    h4 {
+        background-color:peachpuff;
+    }
+
+    .container {
+   
+        border: solid;
+    }
+</style>
+
+
+<div class="container">
+    <h4><marque direction="right">DisplayCustomer</marque></h4>
+    <div style="background-color:palegoldenrod">
+        <h2><text>Customer Name:</text>@Model.Customers.customerName</h2>
+        <p>
+            @foreach (var mov in Model.Movie)
+            {
+                <ul>
+                    <li>
+                        @mov.Name
+                    </li>
+                </ul>
+            }
+        </p>
+    </div>
+</div>

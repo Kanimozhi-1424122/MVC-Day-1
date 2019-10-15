@@ -1,0 +1,40 @@
+﻿@model List<MVC_Day_1.customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Details</h2>
+<text>@Html.ActionLink("New Customer", "Create", "Customer")</text>
+<br />
+<div>
+    <table class="table table-bordered table-hover">
+        <tr style="background-color:grey">
+            <th>
+                Customer Id
+            </th>
+            <th>
+                CustomerName
+            </th>
+            <th>
+                MembershipType
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+        @foreach (var customer in Model)
+        {
+        <tr>
+            <td>@customer.Id</td>
+            <td>@Html.ActionLink(customer.CustomerName, "Details", "customer", new { id = customer.Id }, null)</td>
+            <td>@customer.MemberShipType.Type</td>
+            <td>@Html.ActionLink("Edit", "EditCustomer", "customer", new { id = customer.Id }, null)</td>
+            <td>@Html.ActionLink("Delete", "Delete", "customer", new { id = customer.Id }, null)</td>
+        </tr>
+        }
+    </table>
+</div>

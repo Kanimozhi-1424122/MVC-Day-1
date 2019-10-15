@@ -1,0 +1,45 @@
+﻿@model MVC_Day_1.customer
+@{
+    ViewBag.Title = "EditCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditCustomer</h2>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(c => c.CustomerName)
+            @Html.TextBoxFor(c => c.CustomerName, new { @class = "form-control", autocomplete = "off" })
+            @Html.ValidationMessageFor(c => c.CustomerName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.City)
+            @Html.TextBoxFor(c => c.City, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.City)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Gender)
+            @Html.DropDownListFor(c => c.Gender, ViewBag.Gender as SelectList, new { @class = "form-control" })
+            @*@Html.DropDownListFor(c => c.Gender, null, new { @class = "form-control" })*@
+            @Html.ValidationMessageFor(c => c.Gender)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.DateofBirth)
+            @Html.TextBoxFor(c => c.DateofBirth, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.DateofBirth)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.MemberShipTypeId)
+            @Html.DropDownListFor(c => c.MemberShipTypeId, ViewBag.MemberShipTypeId as SelectList, new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(c => c.MemberShipTypeId)
+
+        </div>
+        <div class="form-group">
+            <input type="submit" name="btnsubmit" class="btn btn-primary" value="submit" />
+        </div>
+    }
+    <text>@Html.ActionLink("back to list", "Index", "Customer")</text>
+</div>

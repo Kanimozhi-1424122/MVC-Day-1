@@ -1,0 +1,50 @@
+﻿@model MVC_Day_1.customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Customer Details</h2>
+@if (@Model != null)
+{
+<div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                CustomerName
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                DateofBirth
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>SignUpFee</th>
+        <tr>
+            <td>
+                @Model.CustomerName
+            </td>
+            <td>@Model.Gender</td>
+            <td>@Model.DateofBirth.Value.ToShortDateString()</td>
+            <td>@Model.City</td>
+            <td>@Model.MemberShipType.Duration</td>
+            <td>@Model.MemberShipType.SignUpFee</td>
+        </tr>
+
+    </table>
+    <text>@Html.ActionLink("back to list", "Index", "Customer")</text>
+</div>      
+
+}
+else
+{
+    <text>No Record exsists</text>
+}
+

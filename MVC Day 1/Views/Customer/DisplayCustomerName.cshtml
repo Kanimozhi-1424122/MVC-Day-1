@@ -1,0 +1,18 @@
+﻿@model MVC_Day_1.customer
+@{
+    ViewBag.Title = "DisplayCustomerName";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DisplayCustomerName</h2>
+<style>
+    text{
+        color:aqua;
+    }
+    h2{
+        color:deeppink;
+    }
+</style>
+<h2><text>Customer ID:</text>@Model.Id</h2>
+<h2><text>Customer Name:</text>@Model.customerName</h2>
+

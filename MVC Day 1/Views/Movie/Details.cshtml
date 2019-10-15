@@ -1,0 +1,51 @@
+﻿@model MVC_Day_1.Movies
+@{
+    /**/
+
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    ul {
+        color: darkblue;
+    }
+</style>
+<h2>Movies Details</h2>
+@if (@Model != null)
+{
+
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    ActorName
+                </th>
+             
+                <th>
+                    ReleaseDate
+                </th>
+                <th>
+                    AvailableStocks
+                </th>
+            <tr>
+                <td>
+                    @Model.ActorName
+                </td>
+
+
+                <td>@Model.ReleaseDate.Value.ToShortDateString()</td>
+                <td>
+                    @Model.AvailableStocks
+                </td>
+            </tr>
+
+        </table>
+    </div>
+   <text>@Html.ActionLink("back to list", "Index", "Movie")</text>
+}
+
+else
+{
+    <text>No Record exsists</text>
+}
+
